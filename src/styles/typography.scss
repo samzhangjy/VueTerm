@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+@import "./variables.scss";
+
+html, body {
+  font-family: 'Fira Code', monospace;
+  background-color: $background;
+}
+
+* {
+  font-size: $font-regular;
+  font-family: 'Fira Code', monospace;
+  line-height: 1.5;
+
+  &::selection {
+    background: $selection;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: $background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray;
+}
