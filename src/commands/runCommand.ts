@@ -10,7 +10,9 @@ const runCommand = () => {
   if (store.currentCommand.trim() === "") return;
   const commandCalled = /^(\w+)\s?(.*)$/.exec(store.currentCommand) || [];
 
-  if (commandCalled[1] === "ls") {
+  if (store.currentCommand.startsWith("#")) {
+    store.endCurrentCommand("");
+  } else if (commandCalled[1] === "ls" || commandCalled[1] === "l") {
     ls(commandCalled[2]);
   } else if (commandCalled[1] === "cd") {
     cd(commandCalled[2]);
