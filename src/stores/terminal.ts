@@ -10,6 +10,8 @@ export interface History {
   command: string;
   output: string | File[];
   pwd: string;
+  show?: boolean;
+  isEmpty?: boolean;
 }
 
 export const useTerminalStore = defineStore({
@@ -18,6 +20,7 @@ export const useTerminalStore = defineStore({
     currentCommand: "" as string,
     history: [] as History[],
     pwd: "~" as string,
+    showHeader: true,
   }),
   actions: {
     endCurrentCommand(output?: string | File[]) {
@@ -25,16 +28,36 @@ export const useTerminalStore = defineStore({
         this.currentCommand = "";
         return;
       }
+      let isEmpty = false;
+      if (typeof output === "string" && output.trim() === "") isEmpty = true;
       this.history.push({
         command: this.currentCommand,
         output: output,
         pwd: this.pwd,
+        show: true,
+        isEmpty,
       });
       this.currentCommand = "";
     },
     clearHistory() {
-      this.history = [];
+      this.history.map((history) => (history.show = false));
+      this.history.push({
+        command: this.currentCommand,
+        output: "",
+        pwd: this.pwd,
+        show: false,
+        isEmpty: false,
+      });
       this.currentCommand = "";
+      this.showHeader = false;
+    },
+  },
+  getters: {
+    historyShown(): History[] {
+      return this.history.filter((history) => history.show);
+    },
+    validHistory(): History[] {
+      return this.history.filter((history) => !history.isEmpty);
     },
   },
 });

@@ -38,12 +38,13 @@ const onEnter = () => {
 const onUp = (event: KeyboardEvent) => {
   event.preventDefault();
   if (currentCommandHistory.value === -1) {
-    currentCommandHistory.value = store.history.length - 1;
+    currentCommandHistory.value = store.validHistory.length - 1;
     currentTypedCommand.value = store.currentCommand;
   } else if (currentCommandHistory.value > 0) {
     currentCommandHistory.value--;
   }
-  store.currentCommand = store.history[currentCommandHistory.value].command;
+  store.currentCommand =
+    store.validHistory[currentCommandHistory.value].command;
 };
 
 const onDown = (event: KeyboardEvent) => {
@@ -51,9 +52,10 @@ const onDown = (event: KeyboardEvent) => {
   if (currentCommandHistory.value === -1) {
     return;
   }
-  if (currentCommandHistory.value < store.history.length - 1) {
+  if (currentCommandHistory.value < store.validHistory.length - 1) {
     currentCommandHistory.value++;
-    store.currentCommand = store.history[currentCommandHistory.value].command;
+    store.currentCommand =
+      store.validHistory[currentCommandHistory.value].command;
   } else {
     currentCommandHistory.value = -1;
     store.currentCommand = currentTypedCommand.value;

@@ -7,7 +7,10 @@ import { useTerminalStore } from "@/stores/terminal";
 
 const runCommand = () => {
   const store = useTerminalStore();
-  if (store.currentCommand.trim() === "") return;
+  if (store.currentCommand.trim() === "") {
+    store.endCurrentCommand("");
+    return;
+  }
   const commandCalled = /^(\w+)\s?(.*)$/.exec(store.currentCommand) || [];
 
   if (store.currentCommand.startsWith("#")) {

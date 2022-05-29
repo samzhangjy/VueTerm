@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="history-item" v-for="(item, index) in store.history" :key="index">
+    <div
+      class="history-item"
+      v-for="(item, index) in store.historyShown"
+      :key="index"
+    >
       <TerminalCommand :pwd="item.pwd">{{ item.command }}</TerminalCommand>
       <p
         class="history-output markdown-content"
