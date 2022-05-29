@@ -46,4 +46,16 @@ const onEnter = () => {
     outline: none;
   }
 }
+
+@media screen and (max-width: $break-md) {
+  .input {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: $break-sm) {
+  .input {
+    width: 80px;
+  }
+}
 </style>

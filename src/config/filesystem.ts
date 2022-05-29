@@ -1,3 +1,6 @@
+import { html as about } from "@/config/about.md";
+import { html as welcome } from "@/config/welcome.md";
+
 export default {
   files: [
     {
@@ -7,13 +10,13 @@ export default {
     },
     {
       type: "file",
-      realPath: "./welcome.md",
+      content: welcome,
       path: "~/projects",
       name: "welcome.md",
     },
     {
       type: "file",
-      realPath: "./about.md",
+      content: about,
       path: "~/",
       name: "about-me.md",
     },

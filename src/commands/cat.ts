@@ -6,7 +6,7 @@ const cat = async (path: string) => {
   const result = await checkFileStatus(path);
 
   if (result.status === FileStatus.EXIST && result.type === "file") {
-    store.endCurrentCommand(result.content.html);
+    store.endCurrentCommand(result.content);
   } else if (result.status === FileStatus.EXIST && result.type === "folder") {
     store.endCurrentCommand(`cat: is a directory: ${path}`);
   } else if (result.status === FileStatus.NOT_EXIST) {

@@ -83,7 +83,7 @@ export const checkFileStatus = async (
         status: FileStatus.EXIST,
         type: "file",
         path: `${normalPath}/${file.name}`,
-        content: await import(`../config/${file.realPath}`),
+        content: file.content,
       };
     }
   }

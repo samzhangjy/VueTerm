@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div
-      class="history-item"
-      v-for="(item, index) in store.history"
-      :key="index"
-    >
+    <div class="history-item" v-for="(item, index) in store.history" :key="index">
       <TerminalCommand :pwd="item.pwd">{{ item.command }}</TerminalCommand>
       <p
         class="history-output markdown-content"
@@ -84,6 +80,18 @@ const store = useTerminalStore();
     & .text-weight-400 {
       font-weight: 400;
     }
+  }
+}
+
+@media screen and (max-width: $break-md) {
+  .history-output-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: $break-sm) {
+  .history-output-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 </style>
