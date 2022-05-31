@@ -5,6 +5,11 @@ const cat = async (path: string) => {
   const store = useTerminalStore();
   const result = await checkFileStatus(path);
 
+  if (path.trim() === "") {
+    store.endCurrentCommand("cat: missing operand");
+    return;
+  }
+
   if (result.status === FileStatus.EXIST && result.type === "file") {
     store.endCurrentCommand(result.content);
   } else if (result.status === FileStatus.EXIST && result.type === "folder") {

@@ -12,6 +12,9 @@ const runCommand = () => {
     return;
   }
   const commandCalled = /^(\w+)\s?(.*)$/.exec(store.currentCommand) || [];
+  commandCalled.map((value) => {
+    return value.trim();
+  });
 
   if (store.currentCommand.startsWith("#")) {
     store.endCurrentCommand("");
