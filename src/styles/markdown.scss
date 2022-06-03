@@ -58,7 +58,7 @@
   }
 
   & code {
-    font-family: 'Fira Code', monospace;
+    font-family: "Fira Code", monospace;
 
     &::before {
       content: "`";
@@ -69,19 +69,30 @@
     }
   }
 
+  & pre code {
+    font-family: "Fira Code", monospace;
+
+    &::before,
+    &::after {
+      content: "";
+    }
+  }
+
   & a {
-    margin: 0px;
+    margin: 0px !important;
     color: $link;
-    text-decoration: none;
+    text-decoration: $link-decoration;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: $link-decoration-hover;
     }
   }
 
   & ul {
     margin: 0px;
     padding-left: 8px;
+    margin: 10px 0px 10px 0px;
+
     & li {
       list-style-type: none;
 
@@ -106,12 +117,20 @@
     margin: 10px 0px 10px 0px;
     padding: 0px;
 
-    & thead, & tbody {
-      & th, & td {
+    & thead,
+    & tbody {
+      & th,
+      & td {
         padding: 0px 15px 0px 0px;
       }
     }
 
     border: none;
+  }
+
+  hr {
+    border: 1px solid $foreground;
+
+    margin: 15px 0px 15px 0px;
   }
 }

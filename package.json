@@ -9,7 +9,9 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "highlight.js": "^11.5.1",
     "markdown-it": "^13.0.1",
+    "markdown-it-highlightjs": "^4.0.1",
     "markdown-it-link-attributes": "^4.0.0",
     "pinia": "^2.0.13",
     "vue": "^3.2.33",
