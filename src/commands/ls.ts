@@ -4,13 +4,15 @@ import { useTerminalStore, type File } from "@/stores/terminal";
 const getFileColor = (fileType: string) => {
   if (fileType === "folder") return "purple";
   if (fileType === "file") return "white";
+  if (fileType === "link") return "green";
   return "red";
 };
 
 const getFileWeight = (fileType: string) => {
   if (fileType === "folder") return "700";
   if (fileType === "file") return "400";
-  return "400";
+  if (fileType === "link") return "700";
+  return "700";
 };
 
 const ls = (flags: string) => {
@@ -30,8 +32,8 @@ const ls = (flags: string) => {
   }
   const pwd = store.pwd + "/";
 
-  for (let i = 0; i < filesystem.files.length; i++) {
-    const file = filesystem.files[i];
+  for (let i = 0; i < filesystem.length; i++) {
+    const file = filesystem[i];
     const normalPath = file.path.slice(
       0,
       file.path[file.path.length - 1] === "/" ? -1 : undefined

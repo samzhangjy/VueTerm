@@ -48,7 +48,6 @@ export const useTerminalStore = defineStore({
         show: false,
         isEmpty: false,
       });
-      this.currentCommand = "";
       this.showHeader = false;
     },
   },

@@ -1,13 +1,13 @@
 import { useTerminalStore } from "@/stores/terminal";
 import { checkFileStatus, FileStatus } from "@/commands/common";
 
-const cd = async (path: string) => {
+const cd = (path: string) => {
   const store = useTerminalStore();
-  const result = await checkFileStatus(path);
+  const result = checkFileStatus(path);
   if (result.status === FileStatus.EXIST && result.type === "folder") {
     store.endCurrentCommand("");
     store.pwd = result.path;
-  } else if (result.status === FileStatus.EXIST && result.type === "file") {
+  } else if (result.status === FileStatus.EXIST) {
     store.endCurrentCommand(`cd: not a directory: ${path}`);
   } else if (result.status === FileStatus.NOT_EXIST) {
     store.endCurrentCommand(`cd: no such file or directory: ${path}`);

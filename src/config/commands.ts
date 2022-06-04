@@ -24,5 +24,9 @@ export default {
       name: "pwd",
       description: "Show current working directory",
     },
+    {
+      name: "open",
+      description: "Open a file or a folder",
+    },
   ],
 };

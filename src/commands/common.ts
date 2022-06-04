@@ -8,7 +8,7 @@ export enum FileStatus {
 }
 
 export interface FileStatusValue {
-  type?: "folder" | "file";
+  type?: "folder" | "file" | "link";
   path: string;
   status: FileStatus;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -42,11 +42,8 @@ export const getAbsolutePath = (path: string): string | FileStatus => {
   return `${store.pwd}/${path}`;
 };
 
-export const checkFileStatus = async (
-  path: string
-): Promise<FileStatusValue> => {
+export const checkFileStatus = (path: string): FileStatusValue => {
   const newPath = getAbsolutePath(path);
-  console.log(newPath);
   if (
     (path.match(/\./g)?.length || 0) >= 4 ||
     newPath === FileStatus.TOO_COMPLEX
@@ -63,8 +60,8 @@ export const checkFileStatus = async (
       path: "~",
     };
   }
-  for (let i = 0; i < filesystem.files.length; i++) {
-    const file = filesystem.files[i];
+  for (let i = 0; i < filesystem.length; i++) {
+    const file = filesystem[i];
     const normalPath = file.path.slice(
       0,
       file.path[file.path.length - 1] === "/" ? -1 : undefined
@@ -81,7 +78,7 @@ export const checkFileStatus = async (
     ) {
       return {
         status: FileStatus.EXIST,
-        type: "file",
+        type: file.type,
         path: `${normalPath}/${file.name}`,
         content: file.content,
       };

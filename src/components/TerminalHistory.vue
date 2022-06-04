@@ -73,6 +73,10 @@ const store = useTerminalStore();
       color: $blue;
     }
 
+    & .text-color-red {
+      color: $red;
+    }
+
     & .text-color-white {
       color: $white;
     }

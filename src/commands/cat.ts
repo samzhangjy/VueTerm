@@ -1,9 +1,9 @@
 import { useTerminalStore } from "@/stores/terminal";
 import { checkFileStatus, FileStatus } from "@/commands/common";
 
-const cat = async (path: string) => {
+const cat = (path: string) => {
   const store = useTerminalStore();
-  const result = await checkFileStatus(path);
+  const result = checkFileStatus(path);
 
   if (path.trim() === "") {
     store.endCurrentCommand("cat: missing operand");
