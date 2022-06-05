@@ -1,6 +1,6 @@
 # About me
 
-Hey there! I'm Sam Zhang, a 13-year-old full stack freelance developer from China who loves open source.
+Hey there! I'm Sam Zhang, a 13-year-old developer from China who loves open source.
 
 And the terminal you're looking at is a demo of my project [VueTerm](https://github.com/samzhangjy/VueTerm) too!
 
