@@ -83,13 +83,13 @@ const onDown = (event: KeyboardEvent) => {
 
 @media screen and (max-width: $break-md) {
   .input {
-    width: 300px;
+    width: 400px;
   }
 }
 
 @media screen and (max-width: $break-sm) {
   .input {
-    width: 80px;
+    width: 100%;
   }
 }
 </style>

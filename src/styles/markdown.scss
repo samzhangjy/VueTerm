@@ -82,6 +82,7 @@
     margin: 0px !important;
     color: $link;
     text-decoration: $link-decoration;
+    word-break: break-word;
 
     &:hover {
       text-decoration: $link-decoration-hover;
