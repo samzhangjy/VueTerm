@@ -1,12 +1,14 @@
 # About me
 
-Hey there! I'm Sam Zhang, a 13-year-old full stack freelance developer from China.
+Hey there! I'm Sam Zhang, a 13-year-old full stack freelance developer from China who loves open source.
+
+And the terminal you're looking at is a demo of my project [VueTerm](https://github.com/samzhangjy/VueTerm) too!
 
 <br />
 
 ## Tech Stack
 
-I am passionate about web development and love to learn new things. I have experience in the following technologies:
+Well, I'm not sure if I'm a big fan of the word "tech" but I'm pretty sure I'm a big fan of the word "open source".
 
 - Node.js
 - React
@@ -19,7 +21,7 @@ I am passionate about web development and love to learn new things. I have exper
 
 ## Projects
 
-I have also worked on a few projects. Below are some of the side projects I open sourced.
+Below are some of my side projects!
 
 - [LogTure](https://github.com/samzhangjy/logture), a SEO optimized static blogging framework, fully customizable. My own  [blog](https://blog.samzhangjy.com) was built using it too.
 - [VueTerm](https://github.com/samzhangjy/VueTerm), a terminal-like personal portfolio site built with Vue.js 3. This site is a demo of it.
@@ -42,4 +44,4 @@ You can find me online via:
 - [Zhihu](https://zhihu.com/people/samzhangjy)
 - [Email](mailto:samzhangjy@outlook.com)
 
-Feel free to say hello to me!
+Feel free to discuss open source stuff with me!
