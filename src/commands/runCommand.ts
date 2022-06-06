@@ -9,6 +9,17 @@ import { useTerminalStore } from "@/stores/terminal";
 import clear from "./clear";
 import exec from "./exec";
 
+export enum CommandMap {
+  ls = "ls",
+  l = "l",
+  cd = "cd",
+  clear = "clear",
+  cat = "cat",
+  help = "help",
+  pwd = "pwd",
+  open = "open",
+}
+
 const runCommand = () => {
   const store = useTerminalStore();
   if (store.currentCommand.trim() === "") {
@@ -33,19 +44,19 @@ const runCommand = () => {
   const command = commandCalled[1];
   const arg = commandCalled[2];
 
-  const map: any = {
-    "l": ls,
-    "ls": ls,
-    "cd": cd,
-    "clear": clear,
-    "cat": cat,
-    "help": help,
-    "pwd": pwd,
-    "open": open,
-  }
+  const map: Record<CommandMap, (args: string) => void> = {
+    l: ls,
+    ls: ls,
+    cd: cd,
+    clear: clear,
+    cat: cat,
+    help: help,
+    pwd: pwd,
+    open: open,
+  };
 
-  command in map
-    ? map[command](arg)
+  Reflect.has(map, command)
+    ? map[command as CommandMap](arg)
     : store.endCurrentCommand(`bash: command not found: ${commandCalled[1]}`);
 };
 
