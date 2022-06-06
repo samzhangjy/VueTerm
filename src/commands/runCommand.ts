@@ -30,23 +30,23 @@ const runCommand = () => {
     return;
   }
 
-  if (commandCalled[1] === "ls" || commandCalled[1] === "l") {
-    ls(commandCalled[2]);
-  } else if (commandCalled[1] === "cd") {
-    cd(commandCalled[2]);
-  } else if (commandCalled[1] === "clear") {
-    clear();
-  } else if (commandCalled[1] === "cat") {
-    cat(commandCalled[2]);
-  } else if (commandCalled[1] === "help") {
-    help();
-  } else if (commandCalled[1] === "pwd") {
-    pwd();
-  } else if (commandCalled[1] === "open") {
-    open(commandCalled[2]);
-  } else {
-    store.endCurrentCommand(`bash: command not found: ${commandCalled[1]}`);
+  const command = commandCalled[1];
+  const arg = commandCalled[2];
+
+  const map: any = {
+    "l": ls,
+    "ls": ls,
+    "cd": cd,
+    "clear": clear,
+    "cat": cat,
+    "help": help,
+    "pwd": pwd,
+    "open": open,
   }
+
+  command in map
+    ? map[command](arg)
+    : store.endCurrentCommand(`bash: command not found: ${commandCalled[1]}`);
 };
 
 export default runCommand;
